@@ -9,15 +9,17 @@
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-server",
     "start": "node ./build/index.js",
-    "server": "nodemon ./build/index.js",
-    "coveralls": "cat ./coverage/lcov.info | coveralls"
+    "server": "nodemon ./build/index.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/niomwungeri-fabrice/mrms.git"
   },
   "keywords": [
-    "Meetings"
+    "Meetings",
+    "Resolution",
+    "Tasks",
+    "Management"
   ],
   "author": "Fabrice NIYOMWUNGERI",
   "license": "ISC",
@@ -33,7 +35,6 @@
     "express": "^4.17.0"
   },
   "devDependencies": {
-    "coveralls": "^3.0.3",
     "jest": "^24.8.0",
     "nodemon": "^1.19.0"
   }

@@ -23,7 +23,3 @@ jobs:
             ./cc-test-reporter before-build
             npm test
             ./cc-test-reporter after-build --exit-code $?
-      - run:
-          name: coveralls
-          command: npm run coveralls
-
