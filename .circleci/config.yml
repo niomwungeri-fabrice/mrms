@@ -18,9 +18,12 @@ jobs:
           paths:
             - ./node_modules
       - run: # run tests
-          name: coveralls
+          name: tests
           command: |
             ./cc-test-reporter before-build
-            npm test -- -u
+            npm test
             ./cc-test-reporter after-build --exit-code $?
+      - run:
+        name: coveralls
+        command: npm run coveralls
 
