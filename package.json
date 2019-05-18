@@ -1,0 +1,30 @@
+{
+  "name": "mrms",
+  "version": "1.0.0",
+  "description": "Meeting Resolution Management System",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "server": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/niomwungeri-fabrice/mrms.git"
+  },
+  "keywords": [
+    "Meetings"
+  ],
+  "author": "Fabrice NIYOMWUNGERI",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/niomwungeri-fabrice/mrms/issues"
+  },
+  "homepage": "https://github.com/niomwungeri-fabrice/mrms#readme",
+  "dependencies": {
+    "express": "^4.17.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  }
+}
