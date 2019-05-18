@@ -24,6 +24,6 @@ jobs:
             npm test
             ./cc-test-reporter after-build --exit-code $?
       - run:
-        name: coveralls
-        command: npm run coveralls
+          name: coveralls
+          command: npm run coveralls
 
