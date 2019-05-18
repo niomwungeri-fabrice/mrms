@@ -62,3 +62,6 @@ typings/
 
 # package-lock for depencies
 package-lock.json
+
+# exclude build
+build/
