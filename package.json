@@ -5,8 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js",
-    "server": "nodemon index.js"
+    "clean": "rm -rf build && mkdir build",
+    "build-server": "babel -d ./build ./server -s",
+    "build": "npm run clean && npm run build-server",
+    "start": "node ./build/index.js",
+    "server": "nodemon ./build/index.js"
   },
   "repository": {
     "type": "git",
@@ -22,6 +25,10 @@
   },
   "homepage": "https://github.com/niomwungeri-fabrice/mrms#readme",
   "dependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.4.4",
     "express": "^4.17.0"
   },
   "devDependencies": {
