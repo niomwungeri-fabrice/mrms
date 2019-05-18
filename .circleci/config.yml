@@ -1,6 +1,8 @@
 version: 2
 jobs:
   build:
+  environment:
+      CC_TEST_REPORTER_ID: 44ac74b09af33efc79afcfc0f5b324855a35cc9a86ac3686a3e173f8800164fc
     docker:
       - image: circleci/node:10.15.1
     steps:
@@ -12,6 +14,12 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
+      - run:
+          name: Setup Code Climate test-reporter
+          command: |
+          # download test reporter as a static binary
+            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+            chmod +x ./cc-test-reporter
       - run: # run tests
           name: run tests
           command: npm test
