@@ -1,0 +1,18 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:10.15.1
+    steps:
+      - checkout
+      - run:
+          name: Setup Dependencies
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: # run tests
+          name: run tests
+          command: npm test
+
