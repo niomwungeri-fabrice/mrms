@@ -17,7 +17,7 @@ jobs:
           key: dependency-cache-{{ checksum "package.json" }}
           paths:
             - ./node_modules
-   - run: # run tests
+      - run: # run tests
           name: coveralls
           command: |
             ./cc-test-reporter before-build
