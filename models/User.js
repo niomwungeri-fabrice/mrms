@@ -27,7 +27,7 @@ export default (sequelize, DataTypes) => {
     },
     { tableName: "users" }
   );
-  // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   User.associate = models => {
     // associations can be defined here
   };
