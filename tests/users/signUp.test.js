@@ -16,6 +16,7 @@ describe("signUp()", () => {
         email: "email@email.rw",
         password: "85669954wecj"
       });
+    console.log(res, "=====");
     expect(res.status).toBe(ACCEPTED);
     expect(res.body.message).toBe("Account created successfully");
   });
