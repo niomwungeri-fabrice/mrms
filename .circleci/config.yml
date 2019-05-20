@@ -1,30 +1,38 @@
 version: 2
-jobs:
+
+workflows:
+  version: 2
   build:
+    jobs:
+      - test
+
+jobs:
+  test:
     docker:
-      - image: circleci/node:10.15.1
-      - image: circleci/postgres:11-alpine-ram
+      - image: circleci/node:10
+      - image: circleci/postgres:10
         environment:
-          POSTGRES_USER: postgres
-          POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: mrms-db-test
+          POSTGRES_USER: circleci
+          POSTGRES_DB: circleci
+    environment:
+      NODE_ENV: test
+      POSTGRES_USER: circleci
+      POSTGRES_DB: circleci
+      JWT_SECRET: sekrit
     steps:
+      - run:
+          name: Install ltree extension for Postgres
+          command: |
+            sudo apt-get update
+            sudo apt-get install postgresql-client
+            dockerize -wait tcp://localhost:5432 -timeout 1m
+            psql -U circleci -h localhost -p 5432 -c 'create extension ltree'
       - checkout
-      - run:
-          name: Setup Dependencies
-          command: npm install
-      - run:
-          name: Setup Code Climate test-reporter
-          command: |
-            curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-            chmod +x ./cc-test-reporter
-      - save_cache: # special step to save the dependency cache
-          key: dependency-cache-{{ checksum "package.json" }}
+      - restore_cache:
+          key: v1-deps-{{ checksum "package.json" }}
+      - run: npm install
+      - save_cache:
           paths:
-            - ./node_modules
-      - run: # run tests
-          name: tests
-          command: |
-            ./cc-test-reporter before-build
-            npm run ci:test
-            ./cc-test-reporter after-build --exit-code $?
+            - node_modules
+          key: v1-deps-{{ checksum "package.json" }}
+      - run: npm test
