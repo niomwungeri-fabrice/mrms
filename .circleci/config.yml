@@ -26,5 +26,5 @@ jobs:
           name: tests
           command: |
             ./cc-test-reporter before-build
-            npm ci:test
+            npm run ci:test
             ./cc-test-reporter after-build --exit-code $?
