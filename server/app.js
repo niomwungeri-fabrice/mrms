@@ -6,7 +6,7 @@ import expressValidator from "express-validator";
 import routers from "./routes";
 import serverResponses from "./middlewares/serverResponses";
 
-const { NOT_FOUND, INTERNAL_SERVER_ERROR, OK } = serverResponses.statusCode;
+const { NOT_FOUND, OK } = serverResponses.statusCode;
 
 dotenv.config();
 
