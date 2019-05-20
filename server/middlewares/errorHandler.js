@@ -7,6 +7,7 @@ const errorHandler = controller => async (req, res, next) => {
   try {
     await controller(req, res, next);
   } catch (error) {
+    console.log(error, "=====db error");
     return res.status(INTERNAL_SERVER_ERROR).json({
       message: INTERNAL_SERVER_ERROR_MESSAGE
     });
