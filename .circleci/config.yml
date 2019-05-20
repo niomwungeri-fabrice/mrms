@@ -41,12 +41,9 @@ jobs:
             - node_modules
           key: v1-deps-{{ checksum "package.json" }}
       - run: npm run migrate
-      - run:
-          name: Run tests
+      - run: # run tests
+          name: coveralls
           command: |
+            ./cc-test-reporter before-build
             npm test
-          # notify Code Climate of a pending test report using `before-build`
-            /cc-test-reporter before-build
-            npm test
-          # upload test report to Code Climate using `after-build`
-            /cc-test-reporter after-build --coverage-input-type clover --exit-code $?
+            ./cc-test-reporter after-build --exit-code $?
