@@ -5,9 +5,9 @@ jobs:
       - image: circleci/node:10.15.1
       - image: circleci/postgres:11-alpine-ram
         environment:
-          DB_USERNAME: andela_user
-          DB_PASSWORD: CIERRY12
-          DB_NAME_TEST: mrms-db-test
+          POSTGRES_USER: andela_user
+          POSTGRES_PASSWORD: CIERRY12
+          POSTGRES_DB: mrms-db-test
     steps:
       - checkout
       - run:
