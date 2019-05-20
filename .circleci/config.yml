@@ -3,6 +3,11 @@ jobs:
   build:
     docker:
       - image: circleci/node:10.15.1
+      - image: circleci/postgres:11-alpine-ram
+        environment:
+          DB_USERNAME: andela_user
+          DB_PASSWORD: CIERRY12
+          DB_NAME_TEST: mrms-db-test
     steps:
       - checkout
       - run:
@@ -21,5 +26,5 @@ jobs:
           name: tests
           command: |
             ./cc-test-reporter before-build
-            npm test
+            npm ci:test
             ./cc-test-reporter after-build --exit-code $?

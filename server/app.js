@@ -29,7 +29,7 @@ app.use((req, resp, next) => {
 
 // eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
-  res.status(err.status || INTERNAL_SERVER_ERROR);
+  res.status(err.status);
   res.json({
     message: err.message
   });
