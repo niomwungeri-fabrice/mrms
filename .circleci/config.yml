@@ -38,10 +38,8 @@ jobs:
       - run: npm run migrate
       - run: # run tests
           name: tests
-          command: |
-            ./cc-test-reporter before-build
-            npm test
-            ./cc-test-reporter after-build --exit-code $?
+          command: npm test
+            
       - run:
           name: Setup Code Climate test-reporter
           command: |
