@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest --coverage --detectOpenHandles --forceExit",
-    "ci:test": "cross-env NODE_ENV=test jest --ci --runInBand --coverage --detectOpenHandles --forceExit",
+    "ci:test": "NODE_ENV=test jest --ci --runInBand --coverage --detectOpenHandles --forceExit",
     "clean": "rm -rf build && mkdir build",
     "build-server": "babel -d ./build ./server -s",
     "build": "npm run clean && npm run build-server",
