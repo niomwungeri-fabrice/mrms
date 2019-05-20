@@ -1,4 +1,4 @@
-"use strict";
+
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable("users", {
@@ -24,6 +24,10 @@ module.exports = {
         unique: true,
         allowNull: false
       },
+      password: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       isVerified: {
         type: Sequelize.BOOLEAN
       },
@@ -41,31 +45,26 @@ module.exports = {
       },
       phone: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       address: {
         type: Sequelize.STRING
       },
       googleId: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       twitterId: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       facebookId: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       linkedInId: {
         type: Sequelize.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
       },
       createdAt: {
         allowNull: false,

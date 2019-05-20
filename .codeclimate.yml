@@ -1,6 +1,5 @@
 ## other configuration excluded from example...
 exclude_patterns:
-- "tests/"
-- "migrations/"
-- "seeders/"
-- "models/"
+  - "tests/"
+  - "db/"
+  
