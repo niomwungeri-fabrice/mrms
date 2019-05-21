@@ -3,7 +3,7 @@ import app from "../../server/app";
 import models from "../../db/models";
 import serverResponses from "../../server/middlewares/serverResponses";
 
-const { UNAUTHORIZED, ACCEPTED } = serverResponses.statusCode;
+const { CONFLICT, ACCEPTED } = serverResponses.statusCode;
 const { User } = models;
 
 describe("signUp()", () => {
@@ -29,7 +29,7 @@ describe("signUp()", () => {
         email: "email@email.rw",
         password: "85669954wecj"
       });
-    expect(res.status).toBe(UNAUTHORIZED);
+    expect(res.status).toBe(CONFLICT);
     expect(res.body.message).toBe("Account already exist");
   });
 
