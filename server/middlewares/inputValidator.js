@@ -1,12 +1,12 @@
 import Joi from "@hapi/joi";
 
 const signUpSchema = Joi.object().keys({
+  email: Joi.string()
+    .email()
+    .required(),
   username: Joi.string()
     .min(5)
     .max(20)
-    .required(),
-  email: Joi.string()
-    .email()
     .required(),
   password: Joi.string()
     .min(8)
