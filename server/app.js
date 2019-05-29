@@ -1,6 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import passport from "passport";
+import "./middlewares/passportStrategies";
 import "@babel/polyfill";
 import expressValidator from "express-validator";
 import routers from "./routes";
@@ -14,6 +16,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(passport.initialize());
+app.use(passport.session());
+
 app.get("/", (req, res) =>
   res.status(OK).send({ message: "Welcome to home of mrms API v1" })
 );

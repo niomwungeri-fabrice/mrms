@@ -21,10 +21,7 @@ export default (sequelize, DataTypes) => {
       gender: DataTypes.STRING,
       phone: { unique: true, type: DataTypes.STRING },
       address: DataTypes.STRING,
-      googleId: { unique: true, type: DataTypes.STRING },
-      twitterId: { unique: true, type: DataTypes.STRING },
-      facebookId: { unique: true, type: DataTypes.STRING },
-      linkedInId: { unique: true, type: DataTypes.STRING }
+      socialId: { unique: true, type: DataTypes.STRING }
     },
     { tableName: "users" }
   );

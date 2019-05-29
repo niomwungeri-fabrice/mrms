@@ -4,6 +4,7 @@ import models from "../../../db/models";
 import { hashedPassword } from "../../utils/helpers";
 
 const { ACCEPTED, UNAUTHORIZED } = serverResponses.statusCode;
+const { FRONTEND_URL } = process.env;
 const { User } = models;
 class AuthController {
   static async signUp(req, res) {
@@ -31,6 +32,10 @@ class AuthController {
     return res
       .status(ACCEPTED)
       .json({ message: "Account created successfully" });
+  }
+
+  static async socialLogin(req, res) {
+    res.redirect(`${FRONTEND_URL}?token=${req.user.token}`);
   }
 }
 
