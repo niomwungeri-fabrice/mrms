@@ -13,6 +13,7 @@ export default (sequelize, DataTypes) => {
       lastName: DataTypes.STRING,
       email: { allowNull: false, unique: true, type: DataTypes.STRING },
       username: { allowNull: false, unique: true, type: DataTypes.STRING },
+      password: { allowNull: false, type: DataTypes.STRING },
       isVerified: DataTypes.BOOLEAN,
       isActive: DataTypes.BOOLEAN,
       profileImage: DataTypes.STRING,
