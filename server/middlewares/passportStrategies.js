@@ -1,3 +1,4 @@
+/* eslint no-underscore-dangle: ["error", { "allow": ["_json"] }] */
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import "@babel/polyfill";
