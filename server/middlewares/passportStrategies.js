@@ -1,8 +1,6 @@
 import passport from "passport";
 import jwt from "jsonwebtoken";
 import "@babel/polyfill";
-import { Strategy as TwitterStrategy } from "passport-twitter";
-
 import { OAuth2Strategy as GoogleStrategy } from "passport-google-oauth";
 import "dotenv/config";
 import models from "../../db/models";
