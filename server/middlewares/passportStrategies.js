@@ -10,7 +10,6 @@ import models from "../../db/models";
 const { User } = models;
 
 const {
-  SERVER_URL,
   JWT_SECRET,
   GOOGLE_OAUTH_TEST_APP_CLIENT_ID,
   GOOGLE_OAUTH_TEST_APP_CLIENT_SECRET

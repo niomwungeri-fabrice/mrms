@@ -2,10 +2,10 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import passport from "passport";
-import "./middlewares/passportStrategies";
 import "@babel/polyfill";
 import expressValidator from "express-validator";
 import routers from "./routes";
+import "./middlewares/passportStrategies";
 import serverResponses from "./middlewares/serverResponses";
 
 const { NOT_FOUND, OK } = serverResponses.statusCode;
