@@ -10,7 +10,7 @@ describe("signUp()", () => {
   test("should should create a user", async () => {
     expect.assertions(2);
     const res = await request(app)
-      .post(`/api/v1/users/auth`)
+      .post(`/api/v1/auth/signup`)
       .send({
         username: "niomwungeri",
         email: "email@email.rw",
@@ -23,7 +23,7 @@ describe("signUp()", () => {
   test("should should return user already exist", async () => {
     expect.assertions(2);
     const res = await request(app)
-      .post(`/api/v1/users/auth`)
+      .post(`/api/v1/auth/signup`)
       .send({
         username: "niomwungeri",
         email: "email@email.rw",

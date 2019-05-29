@@ -6,7 +6,7 @@ import { inputValidator } from "../middlewares/inputValidator";
 const authRouters = Router();
 
 authRouters.post(
-  "/users/auth",
+  "/auth/signup",
   inputValidator("signup"),
   errorHandler(AuthController.signUp)
 );
